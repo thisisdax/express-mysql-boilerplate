@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "host"     : "127.0.0.1",
+        "user"     : "root",
+        "password" : "root",
+        "// set after db created //" : "",
+        "database" : "",
+        "port": 3306
+    }
+}
