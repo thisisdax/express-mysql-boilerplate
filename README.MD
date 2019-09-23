@@ -11,3 +11,5 @@ Launch mysql workbench and connect to your mysql in the background. Create a tes
 3) Install node.js and npm [Link](https://www.npmjs.com/get-npm)
 
 Node.js is a runtime environment for javascript and npm is the package manager to install all relevant dependencies
+
+For more visual guide, visit this [link](https://www.youtube.com/watch?v=xn9ef5pod18)
