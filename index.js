@@ -5,11 +5,14 @@ const db = require('./database/connection');
 
 const app = express();
 const port = process.env.PORT || 3000;
+const peopleRoute = require('./routes/people');
+
 
 // middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/people", peopleRoute);
 
 // server status
 app.get('/health', (req, res) => {

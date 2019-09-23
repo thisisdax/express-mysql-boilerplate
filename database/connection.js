@@ -2,11 +2,16 @@ const mysql = require('mysql');
 const db_config = require('../config.json');
 
 let connection;
-const env = process.env.NODE_ENV || 'development';
+// const env = process.env.NODE_ENV || 'development';
 
 makeConnection = () => {
-    connection = mysql.createConnection(
-        env === "development" ? db_config.dev : process.env.db_config,
+    connection = mysql.createConnection({
+        host: "localhost",
+        user : "root", 
+        password : "chenkaiwei",
+        database: "test"
+    }
+        // env === "development" ? db_config.dev : process.env.db_config,
     );
     console.log('Attempting connection to database...')
     connection.connect((err) => {
