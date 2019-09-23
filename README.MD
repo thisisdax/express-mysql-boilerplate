@@ -1,4 +1,4 @@
-##Installation Instruction
+## Installation Instruction
 
 1) Download mysql software [Link](https://dev.mysql.com/downloads/mysql/5.1.html#macosx-dmg)
 
