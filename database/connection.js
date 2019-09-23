@@ -8,12 +8,13 @@ makeConnection = () => {
     connection = mysql.createConnection({
         host: "localhost",
         user : "root", 
-        password : "chenkaiwei",
+        password : "password",
         database: "test"
     }
         // env === "development" ? db_config.dev : process.env.db_config,
     );
     console.log('Attempting connection to database...')
+
     connection.connect((err) => {
         if(err) {
             console.log('Error when connecting to database: ', err);
