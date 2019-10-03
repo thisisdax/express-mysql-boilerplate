@@ -1,9 +1,53 @@
+insert_membership_table = """
+insert into membership (membership_id, points, points_redeemed, expiry, tier)
+values (%s, %s, %s, %s, %s)
+"""
+
+insert_user_table = """
+insert into user (nric_id, name, country, email, phone, type, password, membership_id)
+values (%s, %s, %s, %s, %s, %s, %s, %s)
+"""
+
+insert_schedule_table = """
+insert into schedule (schedule_id, arrival_airport, arrival_datetime, depart_airport, depart_datetime, price)
+values (%s, %s, %s, %s, %s, %s)
+"""
+
+
+insert_aircraft_table = """
+insert into aircraft (aircraft_id, model, manufacturer, capacity)
+values (%s, %s, %s, %s)
+"""
+
+insert_flight_table = """
+insert into flight (flight_id, aircraft_id)
+values (%s, %s)
+"""
+
+insert_seat_table = """
+insert into seat (seat_id, travel_classs, flight_id)
+values (%s, %s, %s)
+"""
+
+insert_flight_schedule_table = """ 
+insert into flightschedule (flight_schedule_id, schedule_id, flight_id)
+values (%s, %s, %s)
+"""
+
+insert_booking_table = """ 
+insert into booking (booking_id, nric_id, flight_schedule_id)
+values (%s, %s, %s)
+"""
+
+insert_availability_table = """ 
+insert into availability (availability, seat_id, flight_schedule_id)
+values (%s, %s, %s)
+"""
+
 drop_table = """
 DROP table IF EXISTS membership, user, schedule, aircraft, flight, seat,
 flightschedule, booking, availability
 """
-
-
 
 create_membership_table = """
 create table membership(
@@ -71,10 +115,11 @@ create table seat(
     seat_id varchar(256),
     travel_class varchar(256),
     flight_id varchar(256),
-    primary key(seat_id),
+    primary key(seat_id, flight_id),
     foreign key (flight_id) references flight(flight_id)
 );
 """
+
 
 create_flight_schedule_table = """
 create table flightschedule(
@@ -116,3 +161,9 @@ create_table = [create_membership_table, create_user_table, create_schedule_tabl
                 create_seat_table, create_flight_schedule_table,
                 create_booking_table, create_availability_table
                ]
+
+insert_user = [insert_membership_table, insert_user_table]
+
+insert_others = [insert_schedule_table,
+insert_aircraft_table, insert_flight_table, insert_seat_table, insert_flight_schedule_table,
+insert_booking_table, insert_availability_table ]
