@@ -21,6 +21,6 @@ Requirements:
 - pandas
 - pip installation
 
-Open etl.ipynb and run all the cells and viola you will have 1000 records of dummy data appearing in all the tables. 
+Open `etl.ipynb` and run all the cells and viola you will have 1000 records of dummy data appearing in all the tables. 
 
 ![alt text](./erd.png "erd diagram")
