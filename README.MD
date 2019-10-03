@@ -13,3 +13,14 @@ Launch mysql workbench and connect to your mysql in the background. Create a tes
 Node.js is a runtime environment for javascript and npm is the package manager to install all relevant dependencies
 
 For more visual guide, visit this [link](https://www.youtube.com/watch?v=xn9ef5pod18)
+
+## Setting up of Database
+
+Requirements:
+- jupyter notebook
+- pandas
+- pip installation
+
+Open etl.ipynb and run all the cells and viola you will have 1000 records of dummy data appearing in all the tables. 
+
+![alt text](./erd.png "erd diagram")
