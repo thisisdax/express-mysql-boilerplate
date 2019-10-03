@@ -8,7 +8,7 @@ makeConnection = () => {
     connection = mysql.createConnection({
         host: "localhost",
         user : "root", 
-        password : "password",
+        password : "-",
         database: "test"
     }
         // env === "development" ? db_config.dev : process.env.db_config,
