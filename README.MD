@@ -16,6 +16,8 @@ For more visual guide, visit this [link](https://www.youtube.com/watch?v=xn9ef5p
 
 ## Setting up of Database
 
+Access the main `etl.ipynb` from `setup` folder.
+
 Requirements:
 - jupyter notebook
 - pandas
