@@ -25,7 +25,7 @@ values (%s, %s)
 """
 
 insert_seat_table = """
-insert into seat (seat_id, travel_classs, flight_id)
+insert into seat (seat_id, travel_class, flight_id)
 values (%s, %s, %s)
 """
 
