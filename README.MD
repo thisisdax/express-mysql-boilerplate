@@ -16,6 +16,14 @@ For more visual guide, visit this [link](https://www.youtube.com/watch?v=xn9ef5p
 
 ## Setting up of Database
 
+1) First, create a `test` schema
+2) Assuming you have the MYSQL workbench, you can import the data by going -> `Server` -> `Data Import` -> select `database_dump`
+3) tadah you will have all the tables(see below) with 1000 rows of data
+
+![alt text](./erd.png "erd diagram")
+
+## Generating Dummy Data (not that important: only those who want to know how I generate and process the dummy data)
+
 Access the main `etl.ipynb` from `setup` folder.
 
 Requirements:
@@ -23,6 +31,6 @@ Requirements:
 - pandas
 - pip installation
 
-Open `etl.ipynb` and run all the cells and viola you will have 1000 records of dummy data appearing in all the tables. 
+ `etl.ipynb` contains all the code to process the `user_final.csv` and `flight.csv` files.  
 
-![alt text](./erd.png "erd diagram")
+
