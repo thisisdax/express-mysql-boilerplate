@@ -5,14 +5,19 @@ const db = require('./database/connection');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const peopleRoute = require('./routes/people');
+const people = require('./routes/people');
+const flight = require('./routes/flight');
+const flightSchedule = require('./routes/flight_schedule');
 
 
 // middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/people", peopleRoute);
+app.use("/people", people);
+app.use("/flight", flight);
+app.use("/flight_schedule", flightSchedule);
+
 
 // server status
 app.get('/health', (req, res) => {
