@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>airline</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>name</key>
+			<string>airline</string>
+			<key>port</key>
+			<integer>3306</integer>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGOTpYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDE2VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeACl8QEmZsaWdodF9zY2hl
+			ZHVsZV9pZNIeHy0uXxAPTlNNdXRhYmxlU3RyaW5noy0vMFhOU1N0
+			cmluZ1hOU09iamVjdNIeHzIzXk5TTXV0YWJsZUFycmF5ozI0NVdO
+			U0FycmF5WE5TT2JqZWN00h4fIjeiIjhYTlNPYmplY3RfEA9OU0tl
+			eWVkQXJjaGl2ZXLROzxUZGF0YYABAAgAEQAaACMALQAyADcARQBL
+			AFIAWgBlAGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIA
+			wwDFAMoA1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgE/AUQBVgFa
+			AWMBbAFxAYABhAGMAZUBmgGdAaYBuAG7AcAAAAAAAAACAQAAAAAA
+			AAA9AAAAAAAAAAAAAAAAAAABwg==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {748, 473}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>select * from flightschedule
+select * from availability a, flightschedule fs
+where a.flight_schedule_id = fs.flight_schedule_id
+where a.availability = 0</string>
+			<key>table</key>
+			<string>flightschedule</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>200</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>select * from availability a, flightschedule fs
+where a.flight_schedule_id = fs.flight_schedule_id
+where availability = 0</string>
+		<string>select * from availability a, flightschedule fs
+where a.flight_schedule_id = fs.flight_schedule_id</string>
+		<string>select * from flightschedule</string>
+		<string>select * from availability</string>
+		<string>select * from user</string>
+		<string>select * from aircraft</string>
+		<string>SELECT link, COUNT(Clicks.link) AS clicks FROM Clicks GROUP BY Clicks.link</string>
+		<string>SELECT link, COUNT(Clicks.link) FROM Clicks GROUP BY Clicks.link</string>
+		<string>SELECT COUNT(Clicks.link) FROM Clicks GROUP BY Clicks.link</string>
+		<string>SELECT * FROM Clicks GROUP BY Clicks.link</string>
+		<string>SELECT
+		t0.site_id,
+		t0.url_id,
+		t3.url,
+		t0.category,
+		t0.brand,
+		t0.title,
+		t0.description,
+		t0.price
+		FROM ( SELECT 
+				t1.site_id,
+				t1.url_id,
+				t1.category,
+				t1.brand,
+				t1.title,
+				t1.description,
+				t1.price
+				FROM (SELECT
+						Products.id,
+						Products.site_id,
+						Products.url_id,
+						Products.category,
+						Products.brand,
+						Products.title,
+						Products.description,
+						Products.price
+						FROM Products) t1
+						INNER JOIN Favourites t2 ON t1.id = t2.product_id WHERE t2.user_id = 2)
+						INNER JOIN Urls t3 on t0.url_id = t3.id</string>
+		<string>SELECT
+		t1.site_id,
+		t1.url_id,
+		t1.category,
+		t1.brand,
+		t1.title,
+		t1.description,
+		t1.price
+		FROM (SELECT
+			Products.id,
+			Products.site_id,
+			Products.url_id,
+			Products.category,
+			Products.brand,
+			Products.title,
+			Products.description,
+			Products.price
+			FROM Products) t1
+		INNER JOIN Favourites t2 ON t1.id = t2.product_id WHERE t2.user_id = 2</string>
+		<string>SELECT
+		t1.site_id,
+		t1.url_id,
+		t2.url,
+		t1.category,
+		t1.brand,
+		t1.title,
+		t1.description,
+		t1.price
+		FROM (SELECT
+			Products.id,
+			Products.site_id,
+			Products.url_id,
+			Products.category,
+			Products.brand,
+			Products.title,
+			Products.description,
+			Products.price
+			FROM Products) t1
+		INNER JOIN Favourites t2 ON t1.id = t2.product_id WHERE user_id = 2</string>
+		<string>SELECT
+		t1.site_id,
+		t1.url_id,
+		t2.url,
+		t1.category,
+		t1.brand,
+		t1.title,
+		t1.description,
+		t1.price
+		FROM (SELECT
+			Products.site_id,
+			Products.url_id,
+			Products.category,
+			Products.brand,
+			Products.title,
+			Products.description,
+			Products.price
+			FROM Products) t1
+		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'gucci' LIMIT 18 OFFSET 3</string>
+		<string>SELECT * FROM Products WHERE brand = 'burberry'</string>
+		<string>SELECT brand FROM Products WHERE brand = 'aimee kestenberg'</string>
+		<string>SELECT
+		t1.site_id,
+		t1.url_id,
+		t2.url,
+		t1.category,
+		t1.brand,
+		t1.title,
+		t1.description,
+		t1.price
+		FROM (SELECT
+			Products.site_id,
+			Products.url_id,
+			Products.category,
+			Products.brand,
+			Products.title,
+			Products.description,
+			Products.price
+			FROM Products) t1
+		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'aimee kestenberg'  LIMIT 18</string>
+		<string>SELECT
+		t1.site_id,
+		t1.url_id,
+		t2.url,
+		t1.category,
+		t1.brand,
+		t1.title,
+		t1.description,
+		t1.price
+		FROM (SELECT
+			Products.site_id,
+			Products.url_id,
+			Products.category,
+			Products.brand,
+			Products.title,
+			Products.description,
+			Products.price
+			FROM Products) t1
+		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'ysl'  LIMIT 18</string>
+		<string>SELECT
+		t1.site_id,
+		t1.url_id,
+		t2.url,
+		t1.category,
+		t1.brand,
+		t1.title,
+		t1.description,
+		t1.price
+		FROM (SELECT
+			Products.site_id,
+			Products.url_id,
+			Products.category,
+			Products.brand,
+			Products.title,
+			Products.description,
+			Products.price
+			FROM Products) t1
+		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'chanel'  LIMIT 18</string>
+		<string>SELECT
+		t1.site_id,
+		t1.url_id,
+		t2.url,
+		t1.category,
+		t1.brand,
+		t1.title,
+		t1.description,
+		t1.price
+		FROM (SELECT
+			Products.site_id,
+			Products.url_id,
+			Products.category,
+			Products.brand,
+			Products.title,
+			Products.description,
+			Products.price
+			FROM Products) t1
+		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = chanel  LIMIT 18</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.7.21</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
