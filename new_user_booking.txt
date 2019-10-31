@@ -1,0 +1,35 @@
+//New user booking 
+
+//insert membership first (seems like have to do this first or insert user won't work)
+INSERT INTO membership (membership_id, points, points_redeemed, expiry, tier) VALUES (7092, 2,2,"","");
+)
+
+//insert user, to skip the membership id select statement?
+
+INSERT INTO user (nric_id, name, country, email, phone, type, password, membership_id) VALUES ("S99999955", "", "", "", "", "", "",
+(select membership_id from membership where membership_id = 7092));
+
+//insert booking, assuming users pick arrival airport, arrival date, departure airport and departure date
+
+INSERT INTO booking (booking_id, nric_id, flight_schedule_id) VALUES (3456, "S99999955",
+(select flight_schedule_id from flightschedule 
+inner join schedule on flightschedule.schedule_id = schedule.schedule_id
+where schedule.arrival_airport = "?" 
+and arrival_datetime = "?" 
+and depart_airport = "?"
+and depart_datetime = "?"
+));
+
+//update flight and seat availability (assuming users choose their seats?) also not sure how to simplify
+
+update availability
+set availability = 0
+where seat_id = "?" 
+and flight_schedule_id in (
+    select flight_schedule_id from flightschedule 
+inner join schedule on flightschedule.schedule_id = schedule.schedule_id
+where schedule.arrival_airport = "?" 
+and arrival_datetime = "?" 
+and depart_airport = "?"
+and depart_datetime = "?"
+);
