@@ -8,14 +8,15 @@ makeConnection = () => {
     connection = mysql.createConnection({
         host: "localhost",
         user : "root", 
-        password : "-",
+        password : "",
         database: "test"
     }
         // env === "development" ? db_config.dev : process.env.db_config,
     );
-    console.log('Attempting connection to database...')
+    console.log('Attempting connection to database...test');
 
     connection.connect((err) => {
+        console.log("hello");
         if(err) {
             console.log('Error when connecting to database: ', err);
             setTimeout(makeConnection, 5000);
