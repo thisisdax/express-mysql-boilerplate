@@ -33,8 +33,13 @@ CREATE TABLE `user` (
   `membership_id` bigint(20) NOT NULL,
   PRIMARY KEY (`nric_id`),
   KEY `membership_id` (`membership_id`),
+<<<<<<< HEAD
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`membership_id`) REFERENCES `membership` (`membership_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`membership_id`) REFERENCES `membership` (`membership_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+>>>>>>> f1c8244aebc104a1a95f377235cf0d65e7fdccab
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

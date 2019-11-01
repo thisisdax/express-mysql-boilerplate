@@ -29,9 +29,15 @@ CREATE TABLE `flightschedule` (
   PRIMARY KEY (`flight_schedule_id`),
   KEY `flight_id` (`flight_id`),
   KEY `schedule_id` (`schedule_id`),
+<<<<<<< HEAD
   CONSTRAINT `flightschedule_ibfk_1` FOREIGN KEY (`flight_id`) REFERENCES `flight` (`flight_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `flightschedule_ibfk_2` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+  CONSTRAINT `flightschedule_ibfk_1` FOREIGN KEY (`flight_id`) REFERENCES `flight` (`flight_id`),
+  CONSTRAINT `flightschedule_ibfk_2` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+>>>>>>> f1c8244aebc104a1a95f377235cf0d65e7fdccab
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
