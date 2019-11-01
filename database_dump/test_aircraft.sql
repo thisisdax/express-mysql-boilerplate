@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `aircraft`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `aircraft` (
   `aircraft_id` varchar(256) NOT NULL,
-  `model` varchar(256) DEFAULT NULL,
-  `manufacturer` varchar(256) DEFAULT NULL,
-  `capacity` int(11) DEFAULT NULL,
+  `model` varchar(256) NOT NULL,
+  `manufacturer` varchar(256) NOT NULL,
+  `capacity` int(11) NOT NULL,
   PRIMARY KEY (`aircraft_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

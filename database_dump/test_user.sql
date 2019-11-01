@@ -23,17 +23,17 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `nric_id` varchar(256) NOT NULL,
-  `name` varchar(256) DEFAULT NULL,
-  `country` varchar(256) DEFAULT NULL,
-  `email` varchar(256) DEFAULT NULL,
-  `phone` varchar(256) DEFAULT NULL,
-  `type` varchar(256) DEFAULT NULL,
-  `password` varchar(256) DEFAULT NULL,
-  `membership_id` bigint(20) DEFAULT NULL,
+  `nric_id` varchar(256) NOT NULL CHECK( substr(`nric_id`, 1,1) = 's'),
+  `name` varchar(256) NOT NULL,
+  `country` varchar(256) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `phone` varchar(256) NOT NULL,
+  `type` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL CHECK(check `password` like '%[0-9]%' and `password` like '%[A-Z]%' and len(`password`) >= 8),
+  `membership_id` bigint(20) NOT NULL,
   PRIMARY KEY (`nric_id`),
   KEY `membership_id` (`membership_id`),
-  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`membership_id`) REFERENCES `membership` (`membership_id`)
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`membership_id`) REFERENCES `membership` (`membership_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

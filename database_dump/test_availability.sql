@@ -23,13 +23,13 @@ DROP TABLE IF EXISTS `availability`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `availability` (
-  `availability` tinyint(1) DEFAULT NULL,
+  `availability` tinyint(1) DEFAULT 0,
   `seat_id` varchar(256) NOT NULL,
   `flight_schedule_id` bigint(20) NOT NULL,
   PRIMARY KEY (`seat_id`,`flight_schedule_id`),
   KEY `flight_schedule_id` (`flight_schedule_id`),
-  CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`seat_id`) REFERENCES `seat` (`seat_id`),
-  CONSTRAINT `availability_ibfk_2` FOREIGN KEY (`flight_schedule_id`) REFERENCES `flightschedule` (`flight_schedule_id`)
+  CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`seat_id`) REFERENCES `seat` (`seat_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `availability_ibfk_2` FOREIGN KEY (`flight_schedule_id`) REFERENCES `flightschedule` (`flight_schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

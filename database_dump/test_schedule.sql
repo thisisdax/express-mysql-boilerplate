@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `schedule`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `schedule` (
   `schedule_id` bigint(20) NOT NULL,
-  `arrival_airport` varchar(256) DEFAULT NULL,
-  `arrival_datetime` date DEFAULT NULL,
-  `depart_airport` varchar(256) DEFAULT NULL,
-  `depart_datetime` date DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `arrival_airport` varchar(256) NOT NULL,
+  `arrival_datetime` date NOT NULL,
+  `depart_airport` varchar(256) NOT NULL,
+  `depart_datetime` date NOT NULL,
+  `price` int(11) NOT NULL,
   PRIMARY KEY (`schedule_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

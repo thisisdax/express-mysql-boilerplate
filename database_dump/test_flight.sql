@@ -24,10 +24,11 @@ DROP TABLE IF EXISTS `flight`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `flight` (
   `flight_id` varchar(256) NOT NULL,
-  `aircraft_id` varchar(256) DEFAULT NULL,
+  `aircraft_id` varchar(256) NOT NULL,
+  `status_id` varchar(256) NOT NUll DEFAULT "ON TIME", 
   PRIMARY KEY (`flight_id`),
   KEY `aircraft_id` (`aircraft_id`),
-  CONSTRAINT `flight_ibfk_1` FOREIGN KEY (`aircraft_id`) REFERENCES `aircraft` (`aircraft_id`)
+  CONSTRAINT `flight_ibfk_1` FOREIGN KEY (`aircraft_id`) REFERENCES `aircraft` (`aircraft_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

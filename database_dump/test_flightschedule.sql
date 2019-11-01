@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `flightschedule`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `flightschedule` (
   `flight_schedule_id` bigint(20) NOT NULL,
-  `schedule_id` bigint(20) DEFAULT NULL,
-  `flight_id` varchar(256) DEFAULT NULL,
+  `schedule_id` bigint(20) NOT NULL,
+  `flight_id` varchar(256) NOT NULL,
   PRIMARY KEY (`flight_schedule_id`),
   KEY `flight_id` (`flight_id`),
   KEY `schedule_id` (`schedule_id`),
-  CONSTRAINT `flightschedule_ibfk_1` FOREIGN KEY (`flight_id`) REFERENCES `flight` (`flight_id`),
-  CONSTRAINT `flightschedule_ibfk_2` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`)
+  CONSTRAINT `flightschedule_ibfk_1` FOREIGN KEY (`flight_id`) REFERENCES `flight` (`flight_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `flightschedule_ibfk_2` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
