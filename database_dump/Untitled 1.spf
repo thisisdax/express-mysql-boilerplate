@@ -43,40 +43,100 @@
 		<dict>
 			<key>connectionEncoding</key>
 			<string>utf8</string>
+			<key>contentFilter</key>
+			<dict/>
 			<key>contentPageNumber</key>
 			<integer>1</integer>
 			<key>contentSelection</key>
 			<data>
-			YnBsaXN0MDDUAQIDBAUGOTpYJHZlcnNpb25YJG9iamVjdHNZJGFy
-			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDE2VSRudWxs0wkK
-			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
-			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
-			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
-			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
-			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
-			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeACl8QEmZsaWdodF9zY2hl
-			ZHVsZV9pZNIeHy0uXxAPTlNNdXRhYmxlU3RyaW5noy0vMFhOU1N0
-			cmluZ1hOU09iamVjdNIeHzIzXk5TTXV0YWJsZUFycmF5ozI0NVdO
-			U0FycmF5WE5TT2JqZWN00h4fIjeiIjhYTlNPYmplY3RfEA9OU0tl
-			eWVkQXJjaGl2ZXLROzxUZGF0YYABAAgAEQAaACMALQAyADcARQBL
-			AFIAWgBlAGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIA
-			wwDFAMoA1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgE/AUQBVgFa
-			AWMBbAFxAYABhAGMAZUBmgGdAaYBuAG7AcAAAAAAAAACAQAAAAAA
-			AAA9AAAAAAAAAAAAAAAAAAABwg==
+			YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK4HCBUWFxgZHSQpLTI1OlUkbnVsbNMJ
+			CgsMEBRXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6MNDg+AAoAD
+			gASjERITgAWABoAIgA1UdHlwZVRyb3dzVGtleXNfECZTZWxlY3Rp
+			b25EZXRhaWxUeXBlUHJpbWFyeUtleWVkRGV0YWlsc9MJCgsaGxyg
+			oIAH0h4fICFaJGNsYXNzbmFtZVgkY2xhc3Nlc18QE05TTXV0YWJs
+			ZURpY3Rpb25hcnmjICIjXE5TRGljdGlvbmFyeVhOU09iamVjdNIK
+			CyUooiYngAmAC4AM0gsqKyxZTlMuc3RyaW5ngApXc2VhdF9pZNIe
+			Hy4vXxAPTlNNdXRhYmxlU3RyaW5noy4wMVhOU1N0cmluZ1hOU09i
+			amVjdNILKis0gApfEBJmbGlnaHRfc2NoZWR1bGVfaWTSHh82N15O
+			U011dGFibGVBcnJheaM2ODlXTlNBcnJheVhOU09iamVjdNIeHyI7
+			oiI8WE5TT2JqZWN0XxAPTlNLZXllZEFyY2hpdmVy0T9AVGRhdGGA
+			AQAIABEAGgAjAC0AMgA3AEYATABTAFsAZgBtAHEAcwB1AHcAewB9
+			AH8AgQCDAIgAjQCSALsAwgDDAMQAxgDLANYA3wD1APkBBgEPARQB
+			FwEZARsBHQEiASwBLgE2ATsBTQFRAVoBYwFoAWoBfwGEAZMBlwGf
+			AagBrQGwAbkBywHOAdMAAAAAAAACAQAAAAAAAABBAAAAAAAAAAAA
+			AAAAAAAB1Q==
 			</data>
 			<key>contentSortColIsAsc</key>
-			<true/>
+			<false/>
 			<key>contentViewport</key>
 			<string>{{0, 0}, {748, 473}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
 			<key>queries</key>
-			<string>select * from flightschedule
+			<string>select * from flight
+select * from user
+select * from availability
+select * from booking
+select * from schedule s
+where s.depart_airport like 'Ukraine' and s.arrival_airport like 'Philippines' and s.depart_datetime &gt;= '2019-02-21';
 select * from availability a, flightschedule fs
 where a.flight_schedule_id = fs.flight_schedule_id
-where a.availability = 0</string>
+and a.availability = 0 and fs.flight_schedule_id = 1;
+select * from schedule s
+where s.depart_datetime &lt; CURRENT_DATE() - 365
+and s.depart_airport LIKE '%China%'
+and s.arrival_airport LIKE '%poland%'
+order by s.price asc
+limit 10
+
+select * from user where email like "%mpoliniol@icq.com" and password like "UhZbSCgp"
+
+select DATE_SUB(NOW(),INTERVAL 1 YEAR)
+
+select * from aircraft
+select * from flight
+select * from schedule
+select * from availability
+select * from flightschedule
+
+select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id,
+	fs.flight_id,
+	f.aircraft_id
+from schedule s, flightschedule fs, flight f, aircraft a
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id
+and f.aircraft_id = a.aircraft_id
+
+select * from availability av, flightschedule fs
+where av.flight_schedule_id = fs.flight_schedule_id
+and fs.flight_schedule_id = '9954496335'
+
+and fs.flight_schedule_id = av.availability
+group by f.flight_id, a.aircraft_id, s.schedule_id
+
+select a.* from availability a, flightschedule fs, schedule s
+--       where a.flight_schedule_id = fs.flight_schedule_id
+--       and a.availability = 1
+      where fs.schedule_id = s.schedule_id
+      and fs.flight_schedule_id = a.flight_schedule_id
+      and depart_datetime &gt;= CURRENT_DATE() - 365
+      group by fs.schedule_id
+      
+      select * from flight
+      select * from flightschedule
+      select * from schedule s
+      where s.depart_datetime &gt; DATE_SUB(NOW(),INTERVAL 10 YEAR)
+      order by s.price asc</string>
 			<key>table</key>
-			<string>flightschedule</string>
+			<string>availability</string>
 			<key>view</key>
 			<string>SP_VIEW_CUSTOMQUERY</string>
 			<key>windowVerticalDividerPosition</key>
@@ -91,184 +151,126 @@ where a.availability = 0</string>
 	<array/>
 	<key>queryHistory</key>
 	<array>
-		<string>select * from availability a, flightschedule fs
-where a.flight_schedule_id = fs.flight_schedule_id
-where availability = 0</string>
-		<string>select * from availability a, flightschedule fs
-where a.flight_schedule_id = fs.flight_schedule_id</string>
-		<string>select * from flightschedule</string>
+		<string>select * from availability av, flightschedule fs
+where av.flight_schedule_id = fs.flight_schedule_id
+and fs.flight_schedule_id like '9954496335'</string>
+		<string>select * from availability av, flightschedule fs
+where av.flight_schedule_id = fs.flight_schedule_id
+where fs.flight_schedule_id = '9954496335'</string>
+		<string>select * from availability av, flightschedule fs
+where av.flight_schedule_id = fs.flight_schedule_id
+where fs.flight_schedule_id like '9954496335'</string>
+		<string>select * from availability av, flightschedule fs
+where av.flight_schedule_id = fs.flight_schedule_id</string>
 		<string>select * from availability</string>
-		<string>select * from user</string>
-		<string>select * from aircraft</string>
-		<string>SELECT link, COUNT(Clicks.link) AS clicks FROM Clicks GROUP BY Clicks.link</string>
-		<string>SELECT link, COUNT(Clicks.link) FROM Clicks GROUP BY Clicks.link</string>
-		<string>SELECT COUNT(Clicks.link) FROM Clicks GROUP BY Clicks.link</string>
-		<string>SELECT * FROM Clicks GROUP BY Clicks.link</string>
-		<string>SELECT
-		t0.site_id,
-		t0.url_id,
-		t3.url,
-		t0.category,
-		t0.brand,
-		t0.title,
-		t0.description,
-		t0.price
-		FROM ( SELECT 
-				t1.site_id,
-				t1.url_id,
-				t1.category,
-				t1.brand,
-				t1.title,
-				t1.description,
-				t1.price
-				FROM (SELECT
-						Products.id,
-						Products.site_id,
-						Products.url_id,
-						Products.category,
-						Products.brand,
-						Products.title,
-						Products.description,
-						Products.price
-						FROM Products) t1
-						INNER JOIN Favourites t2 ON t1.id = t2.product_id WHERE t2.user_id = 2)
-						INNER JOIN Urls t3 on t0.url_id = t3.id</string>
-		<string>SELECT
-		t1.site_id,
-		t1.url_id,
-		t1.category,
-		t1.brand,
-		t1.title,
-		t1.description,
-		t1.price
-		FROM (SELECT
-			Products.id,
-			Products.site_id,
-			Products.url_id,
-			Products.category,
-			Products.brand,
-			Products.title,
-			Products.description,
-			Products.price
-			FROM Products) t1
-		INNER JOIN Favourites t2 ON t1.id = t2.product_id WHERE t2.user_id = 2</string>
-		<string>SELECT
-		t1.site_id,
-		t1.url_id,
-		t2.url,
-		t1.category,
-		t1.brand,
-		t1.title,
-		t1.description,
-		t1.price
-		FROM (SELECT
-			Products.id,
-			Products.site_id,
-			Products.url_id,
-			Products.category,
-			Products.brand,
-			Products.title,
-			Products.description,
-			Products.price
-			FROM Products) t1
-		INNER JOIN Favourites t2 ON t1.id = t2.product_id WHERE user_id = 2</string>
-		<string>SELECT
-		t1.site_id,
-		t1.url_id,
-		t2.url,
-		t1.category,
-		t1.brand,
-		t1.title,
-		t1.description,
-		t1.price
-		FROM (SELECT
-			Products.site_id,
-			Products.url_id,
-			Products.category,
-			Products.brand,
-			Products.title,
-			Products.description,
-			Products.price
-			FROM Products) t1
-		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'gucci' LIMIT 18 OFFSET 3</string>
-		<string>SELECT * FROM Products WHERE brand = 'burberry'</string>
-		<string>SELECT brand FROM Products WHERE brand = 'aimee kestenberg'</string>
-		<string>SELECT
-		t1.site_id,
-		t1.url_id,
-		t2.url,
-		t1.category,
-		t1.brand,
-		t1.title,
-		t1.description,
-		t1.price
-		FROM (SELECT
-			Products.site_id,
-			Products.url_id,
-			Products.category,
-			Products.brand,
-			Products.title,
-			Products.description,
-			Products.price
-			FROM Products) t1
-		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'aimee kestenberg'  LIMIT 18</string>
-		<string>SELECT
-		t1.site_id,
-		t1.url_id,
-		t2.url,
-		t1.category,
-		t1.brand,
-		t1.title,
-		t1.description,
-		t1.price
-		FROM (SELECT
-			Products.site_id,
-			Products.url_id,
-			Products.category,
-			Products.brand,
-			Products.title,
-			Products.description,
-			Products.price
-			FROM Products) t1
-		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'ysl'  LIMIT 18</string>
-		<string>SELECT
-		t1.site_id,
-		t1.url_id,
-		t2.url,
-		t1.category,
-		t1.brand,
-		t1.title,
-		t1.description,
-		t1.price
-		FROM (SELECT
-			Products.site_id,
-			Products.url_id,
-			Products.category,
-			Products.brand,
-			Products.title,
-			Products.description,
-			Products.price
-			FROM Products) t1
-		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = 'chanel'  LIMIT 18</string>
-		<string>SELECT
-		t1.site_id,
-		t1.url_id,
-		t2.url,
-		t1.category,
-		t1.brand,
-		t1.title,
-		t1.description,
-		t1.price
-		FROM (SELECT
-			Products.site_id,
-			Products.url_id,
-			Products.category,
-			Products.brand,
-			Products.title,
-			Products.description,
-			Products.price
-			FROM Products) t1
-		INNER JOIN Urls t2 ON t1.url_id = t2.id WHERE brand = chanel  LIMIT 18</string>
+		<string>select * from flightschedule</string>
+		<string>select * from schedule</string>
+		<string>select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id,
+	fs.flight_id,
+	f.aircraft_id
+from schedule s, flightschedule fs, flight f, aircraft a
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id
+and f.aircraft_id = a.aircraft_id</string>
+		<string>select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id,
+	fs.flight_id,
+	f.aircraft_id
+from schedule s, flightschedule fs, flight f
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id</string>
+		<string>select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id,
+	fs.flight_id
+	f.aircraft_id
+from schedule s, flightschedule fs, flight f
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id</string>
+		<string>select * from flight</string>
+		<string>select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id,
+	fs.flight_id
+from schedule s, flightschedule fs, flight f
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id</string>
+		<string>select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id,
+	fs.flight_id
+from schedule s, flightschedule fs
+where s.schedule_id = fs.schedule_id</string>
+		<string>select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id,
+	fs.flight_id
+from schedule s, flightschedule fs</string>
+		<string>select
+	s.schedule_id,
+	s.arrival_airport,
+	s.arrival_datetime,
+	s.depart_airport,
+	s.depart_datetime,
+	s.price,
+	fs.flight_schedule_id
+	fs.flight_id
+from schedule s, flightschedule fs</string>
+		<string>select * from schedule s, flightschedule fs
+where s.schedule_id = fs.schedule_id</string>
+		<string>select * from schedule s, aircraft a, flight f, availability av, flightschedule fs
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id
+and fs.flight_schedule_id = av.availability
+group by f.flight_id, a.aircraft_id, s.schedule_id</string>
+		<string>select * from schedule s, aircraft a, flight f, availability av, flightschedule fs
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id
+and fs.flight_schedule_id = av.availability
+group by f.flight_id, a.aircraft_id</string>
+		<string>select * from schedule s, aircraft a, flight f, availability av, flightschedule fs
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id
+and fs.flight_schedule_id = av.availability
+group by s.flight_id, a.aircraft_id</string>
+		<string>select * from schedule s, aircraft a, flight f, availability av, flightschedule fs
+where s.schedule_id = fs.schedule_id
+and fs.flight_id = f.flight_id
+and fs.flight_schedule_id = av.availability
+group by s.schedule_id</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
