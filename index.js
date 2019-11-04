@@ -5,11 +5,16 @@ const auth = require('./auth/authenticate');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+const updateRoute = require('./routes/updateflight');
+const deleteRoute = require('./routes/deleteflight');
+const postRoute = require('./routes/createflight');
 const people = require('./routes/people');
 const flight = require('./routes/flight');
 const booking = require('./routes/booking');
 const flightSchedule = require('./routes/flight_schedule');
 const login = require('./routes/login');
+
 
 // middleware
 app.use(cors());
@@ -19,8 +24,10 @@ app.use("/login", login);
 app.use("/people", people);
 app.use("/flight", flight);
 app.use("/flight_schedule", flightSchedule);
+app.use("/updateflight", updateRoute);
+app.use("/deleteflight", deleteRoute);
+app.use("/createflight", postRoute);
 app.use("/booking", auth.middleware, booking);
-// app.use("/booking", booking);
 app.use("/admin", auth.middleware);
 
 // server status
@@ -29,7 +36,7 @@ app.get('/health', (req, res) => {
 })
 
 app.get('/home', (req, res) => {
-    console.log('hehe');
+    console.log('inside home...');
     res.send('Home');
 })
 

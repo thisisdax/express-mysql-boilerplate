@@ -23,15 +23,15 @@ DROP TABLE IF EXISTS `booking`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `booking` (
-  `booking_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `nric_id` varchar(256) DEFAULT NULL,
-  `flight_schedule_id` bigint(20) DEFAULT NULL,
+  `booking_id` bigint(20) NOT NULL,
+  `nric_id` varchar(256) NOT NULL CHECK( substr(`nric_id`, 1,1) = 's'),
+  `flight_schedule_id` bigint(20) NOT NULL,
   PRIMARY KEY (`booking_id`),
   KEY `nric_id` (`nric_id`),
   KEY `flight_schedule_id` (`flight_schedule_id`),
-  CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`nric_id`) REFERENCES `user` (`nric_id`),
-  CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`flight_schedule_id`) REFERENCES `flightschedule` (`flight_schedule_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`nric_id`) REFERENCES `user` (`nric_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`flight_schedule_id`) REFERENCES `flightschedule` (`flight_schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ALTER TABLE `booking` AUTO_INCREMENT=1001;
 /*!40101 SET character_set_client = @saved_cs_client */;

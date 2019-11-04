@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `membership`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `membership` (
   `membership_id` bigint(20) NOT NULL,
-  `points` int(11) DEFAULT NULL,
-  `points_redeemed` int(11) DEFAULT NULL,
+  `points` int(11) DEFAULT 0,
+  `points_redeemed` int(11) NOT NULL,
   `expiry` date DEFAULT NULL,
   `tier` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`membership_id`)
