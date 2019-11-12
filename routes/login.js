@@ -21,8 +21,7 @@ Router.post("/", (req,res)=>{
             const user = {...rows[0]}
             delete user.password;
             const token = auth.sign(user);
-            console.log('happening');
-            res.json({token});
+            res.json({token, admin: user.admin});
           } else {
             res.status(403).send('Verification Error');
           }

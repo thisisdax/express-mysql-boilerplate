@@ -6,29 +6,29 @@ const auth = require('./auth/authenticate');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const updateRoute = require('./routes/updateflight');
-const deleteRoute = require('./routes/deleteflight');
-const postRoute = require('./routes/createflight');
+const admin = require('./routes/admin');
 const people = require('./routes/people');
 const flight = require('./routes/flight');
 const booking = require('./routes/booking');
 const flightSchedule = require('./routes/flight_schedule');
 const login = require('./routes/login');
-
+const signup = require('./routes/signup');
+const popular = require('./routes/popularflight');
+const profitable = require('./routes/profitableflight');
 
 // middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/login", login);
+app.use("/signup", signup);
 app.use("/people", people);
 app.use("/flight", flight);
 app.use("/flight_schedule", flightSchedule);
-app.use("/updateflight", updateRoute);
-app.use("/deleteflight", deleteRoute);
-app.use("/createflight", postRoute);
+app.use("/popular", popular);
+app.use("/profitable", profitable);
 app.use("/booking", auth.middleware, booking);
-app.use("/admin", auth.middleware);
+app.use("/admin", auth.middlewareAdmin, admin);
 
 // server status
 app.get('/health', (req, res) => {
